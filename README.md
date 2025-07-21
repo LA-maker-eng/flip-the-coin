@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # DevChallenges.io - Flip The Coin
 
 ![Thumbnail for the Flip The Coin coding challenge](./thumbnail.jpg)
@@ -94,3 +95,7 @@ We value feedback and are always looking to improve our challenges and platform.
 This challenge is completely free. Please share it with anyone who would find it useful for practice.
 
 **Enjoy building!** 🚀
+=======
+# flip-the-coin
+DevChallenges 硬币翻转项目，用于 GitHub Pages 部署
+>>>>>>> ee48cbefe0e154cc1ff45ab85de354e2d8a29cee
