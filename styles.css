@@ -1,90 +1,6 @@
-/* 全局样式重置与基础设置 */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
-body {
-  background-color: #3a4b63; /* 更接近设计稿的深蓝色 */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-.container {
-  text-align: center;
-  color: white;
-  width: 90%;
-  max-width: 350px; /* 限制宽度，适配手机 */
-}
-
-h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-  letter-spacing: 1px; /* 增加字母间距，更接近设计稿 */
-}
-
-p {
-  font-size: 1rem;
-  margin-bottom: 2rem;
-  line-height: 1.5;
-  color: #e2e8f0; /* 稍微淡化文字，提升层次感 */
-}
-
-/* 硬币容器，设置透视效果 */
-.coin-container {
-  perspective: 1000px;
-  margin-bottom: 2rem;
-}
-
-.coin {
-  position: relative;
-  width: 120px;
-  height: 120px;
-  margin: 0 auto;
-  transform-style: preserve-3d;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.coin-img {
-  width: 100%;
-  height: 100%;
-  /* 确保图片在3D空间中正确显示 */
-  backface-visibility: hidden;
-}
-
-.coin-shadow {
-  width: 100px;
-  height: 20px;
-  margin: 10px auto 0;
-  filter: blur(5px);
-  opacity: 0.5;
-}
-
-/* 阴影动画 */
-@keyframes shadow-pulse {
-  0%, 100% { transform: scale(1); opacity: 0.5; }
-  50% { transform: scale(0.8); opacity: 0.3; }
-}
-
-#flipBtn {
-  background-color: #3b82f6;
-  color: white;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  border-radius: 6px;
-  cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-  transition: all 0.2s ease;
-}
 
 #flipBtn:hover {
-  background-color: #2563eb; /* 悬停时颜色加深 */
+  background-color: #2563eb;
   transform: translateY(-1px);
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
 }
@@ -92,4 +8,16 @@ p {
 #flipBtn:active {
   transform: translateY(1px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+@keyframes shadow-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(0.8); opacity: 0.3; }
+}
+
+
+#flipBtn.disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }

@@ -3,21 +3,102 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="交互式掷硬币小游戏，通过3D动画模拟硬币翻转，随机生成正反面结果">
   <title>Flip the Coin</title>
-  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #3a4b63;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      color: white;
+      width: 90%;
+      max-width: 350px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      letter-spacing: 1px;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+      color: #e2e8f0;
+    }
+
+    .coin-container {
+      perspective: 1000px;
+      margin-bottom: 2rem;
+    }
+
+    .coin {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto;
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .coin-img {
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+    }
+
+    .coin-shadow {
+      width: 100px;
+      height: 20px;
+      margin: 10px auto 0;
+      filter: blur(5px);
+      opacity: 0.5;
+    }
+
+    #flipBtn {
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+      transition: all 0.2s ease;
+    }
+  </style>
+  
+  <!-- 异步加载非关键CSS（不影响首屏渲染） -->
+  <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="styles.css"></noscript>
 </head>
 <body>
   <div class="container">
     <h1>Flip the coin</h1>
     <p>Press the coin or the button to flip the coin</p>
     
-<div class="coin-container" id="coinContainer">
-  <div class="coin" id="coin">
-    <!-- 使用单个图片元素 -->
-    <img src="resources/heads.svg" alt="Coin" class="coin-img" id="coinImg">
-  </div>
-  <img src="resources/shadow.svg" alt="Coin Shadow" class="coin-shadow">
-</div>
+    <div class="coin-container" id="coinContainer">
+      <div class="coin" id="coin">
+        <img src="resources/heads.svg" alt="Coin" class="coin-img" id="coinImg">
+      </div>
+      <img src="resources/shadow.svg" alt="Coin Shadow" class="coin-shadow">
+    </div>
     
     <p id="resultText">Heads</p>
     <button id="flipBtn">RANDOM</button>
